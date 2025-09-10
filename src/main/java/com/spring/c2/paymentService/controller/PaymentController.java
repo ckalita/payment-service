@@ -41,15 +41,17 @@ public class PaymentController {
 	
 	@GetMapping(path = "/")
 	public ResponseEntity<List<Payment>> getAllPayments(){
-		
+		log.info("Entering getAllPayments");
 		List<Payment> paymentList = paymentService.getAllPayments();
-		
+		log.info("Exiting getAllPayments");
 		return new ResponseEntity<List<Payment>>(paymentList, HttpStatus.OK);
 	}
 	
 	@GetMapping(path = "/{id}")
 	public ResponseEntity<Payment> getPaymentsById(@PathVariable int id){
+		log.info("entering getPaymentsById");
 		Payment payment = paymentService.getPaymentsById(id);
+		log.info("exiting getPaymentsById");
 		return payment != null ? new ResponseEntity<>(payment, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	

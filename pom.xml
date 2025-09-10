@@ -92,6 +92,12 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+		
+		<dependency>
+    		<groupId>io.micrometer</groupId>
+    		<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<dependencyManagement>
@@ -119,6 +125,20 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+  				<groupId>com.google.cloud.tools</groupId>
+  				<artifactId>jib-maven-plugin</artifactId>
+  				<version>3.4.1</version>
+  				<configuration>
+  					<to>
+            			<image>c2kalita85/ecom-${project.artifactId}:v1.0</image>
+            			<auth>
+        					<username>c2kalita85</username>
+        					<password>dckr_pat_yDg3vvFgc9jyIn4ROiLjh5Ww1Fc</password>
+      					</auth>
+        			</to>
+        		</configuration>	
 			</plugin>
 		</plugins>
 	</build>
